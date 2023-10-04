@@ -1,10 +1,7 @@
 import mongoose from "mongoose";
-import express from "express";
-import cors from "cors";
+import app from "./app";
 
-const app = express();
-const port = 7000;
-app.use(cors());
+const port: number = 5000;
 
 // Databases connection
 async function bootstrap() {
@@ -22,7 +19,3 @@ async function bootstrap() {
 }
 
 bootstrap();
-
-app.get("/", (req, res) => {
-	res.send("Hello World!");
-});
