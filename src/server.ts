@@ -1,20 +1,20 @@
 import mongoose from "mongoose";
 import app from "./app";
 
-const port: number = 5000;
+const port: number = 10000;
 
-// Databases connection
 async function bootstrap() {
-	await mongoose.connect("mongodb://127.0.0.1:27017/test");
 	try {
-		console.log("Database connection Done!");
+		// Data Base Connection
+		await mongoose.connect("mongodb://127.0.0.1:27017/practice-mongoose");
+		console.log("Data Base Connection successfully!");
 
-		// Listing databases
+		// Listing Port
 		app.listen(port, () => {
-			console.log(`Server is listening on port ${port}`);
+			console.log(`Mongoose Server is listening on port ${port}`);
 		});
 	} catch (error) {
-		console.log("Fail to connect database.", error);
+		console.log(error);
 	}
 }
 
